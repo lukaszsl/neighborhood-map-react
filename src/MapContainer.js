@@ -60,38 +60,38 @@ export class MapContainer extends Component {
 
 	render() {
 		return (
-			<Map
-				google={this.props.google}
-				zoom={14}
-				style={{
-					width: '100%',
-					height: '100%'
-				}}
-				initialCenter={{
-					lat: 64.144740,
-					lng: -21.941762
-				}}
-				onClick={this.onMapClicked}
-				>
-					{this.state.places.map((place) => (
-						<Marker
-							key={place.name}
-							title={place.title}
-							name={place.name}
-							position={place.position}
-							address={place.address}
-							onClick={this.onMarkerClick} />
-					))}
-					<InfoWindow
-						marker={this.state.activeMarker}
-						visible={this.state.showingInfoWindow}>
-							<div className='info-window'>
-								<h1>{this.state.selectedPlace.name}</h1>
-								<p>{this.state.selectedPlace.address}</p>
-							</div>
-					</InfoWindow>
-			</Map>
-		);
+				<Map
+					google={this.props.google}
+					zoom={14}
+					style={{
+						width: '100%',
+						height: '100%'
+					}}
+					initialCenter={{
+						lat: 64.144740,
+						lng: -21.941762
+					}}
+					onClick={this.onMapClicked}
+					>
+						{this.state.places.map((place) => (
+							<Marker
+								key={place.name}
+								title={place.title}
+								name={place.name}
+								position={place.position}
+								address={place.address}
+								onClick={this.onMarkerClick} />
+						))}
+						<InfoWindow
+							marker={this.state.activeMarker}
+							visible={this.state.showingInfoWindow}>
+								<div className='info-window'>
+									<h1>{this.state.selectedPlace.name}</h1>
+									<p>{this.state.selectedPlace.address}</p>
+								</div>
+						</InfoWindow>
+				</Map>
+		)
 	}
 }
 

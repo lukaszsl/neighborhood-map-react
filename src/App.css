@@ -1,16 +1,52 @@
+* {
+	box-sizing: border-box;
+}
+
 .App {
 	text-align: center;
+	display: flex;
+	flex-wrap: wrap;
 }
 
 .App-header {
 	background-color: #222;
-	height: 10vh;
+	height: 7vh;
+	width: 100%;
 	padding: 20px;
 	color: white;
+	display: flex;
+	justify-content: center;
+	align-items: center;
 }
 
 .App-title {
 	font-size: 1.5em;
+}
+
+.main-content {
+	position: relative;
+	display: flex;
+	flex-wrap: nowrap;
+}
+
+.sidebar {
+	background-color: #222;
+	height: 93vh;
+	width: 20vw;
+	position: relative;
+	top: 0;
+	left: 0;
+}
+
+.sidebar-input {
+	margin: 7%;
+	width: 80%;
+}
+
+.map-container {
+	position: relative;
+	height: 93vh;
+	width: 80vw;
 }
 
 .info-window h1 {

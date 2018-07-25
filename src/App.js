@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import MapContainer from './MapContainer.js'
+import Sidebar from './Sidebar'
 import './App.css'
 
 class App extends Component {
@@ -9,7 +10,12 @@ class App extends Component {
         <header className="App-header">
           <h1 className="App-title">My places</h1>
         </header>
-				<MapContainer />
+				<div className="main-content">
+					<Sidebar />
+					<div className="map-container">
+						<MapContainer />
+					</div>
+				</div>
       </div>
     );
   }
