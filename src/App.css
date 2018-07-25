@@ -43,6 +43,10 @@
 	width: 80%;
 }
 
+.sidebar-places {
+	color: white;
+}
+
 .map-container {
 	position: relative;
 	height: 93vh;
