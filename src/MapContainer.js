@@ -3,30 +3,6 @@ import {Map, InfoWindow, Marker, GoogleApiWrapper} from 'google-maps-react'
 import './App.css'
 
 export class MapContainer extends Component {
-
-	// state = {
-	// 	showingInfoWindow: this.props.showingInfoWindow,
-	// 	activeMarker: this.props.activeMarker,
-	// 	selectedPlace: this.props.selectedPlace,
-	// 	places: this.props.places
-	// }
-
-	// onMarkerClick = (props, marker, e) =>
-	// 	this.setState({
-	// 		selectedPlace: props,
-	// 		activeMarker: marker,
-	// 		showingInfoWindow: true
-	// 	})
-
-	// onMapClicked = (props) => {
-	// 	if (this.state.showingInfoWindow) {
-	// 		this.setState({
-	// 			showingInfoWindow: false,
-	// 			activeMarker: null
-	// 		})
-	// 	}
-	// }
-
 	render() {
 		return (
 				<Map

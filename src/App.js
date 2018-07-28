@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import {Map, InfoWindow, Marker, GoogleApiWrapper} from 'google-maps-react'
 import MapContainer from './MapContainer.js'
 import Sidebar from './Sidebar'
 import './App.css'
@@ -44,46 +43,28 @@ class App extends Component {
 		]
 	}
 
-		// componentDidMount() {
-		// 	let places = this.state.places
-		// 	let activeMarker = this.state.activeMarker
-		// 	let showingInfoWindow = this.state.showingInfoWindow
-		// 	let that = this
-		// 	document.getElementById('location-list').addEventListener('click', function(event) {
-		// 		console.log(event)
-		// 		// console.log(places)
-		// 		places.map(function(place) {
-		// 			if (place.name.toLowerCase() === event.target.innerText.toLowerCase()) {
-		// 					console.log(place)
-		// 					console.log(showingInfoWindow)
-		// 					that.onMarkerClick
-		// 			}
-		// 		})
-		// 	})
-		// }
+	onMarkerClick = (props, marker, e) =>
+		this.setState({
+			selectedPlace: props,
+			activeMarker: marker,
+			showingInfoWindow: true
+		})
 
-		onMarkerClick = (props, marker, e) =>
-			this.setState({
-				selectedPlace: props,
-				activeMarker: marker,
-				showingInfoWindow: true
-			})
-
-			onMapClicked = (props) => {
-				if (this.state.showingInfoWindow) {
-					this.setState({
-						showingInfoWindow: false,
-						activeMarker: null
-					})
-				}
+		onMapClicked = (props) => {
+			if (this.state.showingInfoWindow) {
+				this.setState({
+					showingInfoWindow: false,
+					activeMarker: null
+				})
 			}
+		}
 
-  render() {
-    return (
-      <div className="App">
-        <header className="App-header">
-          <h1 className="App-title">My places</h1>
-        </header>
+	render() {
+		return (
+			<div className="App">
+				<header className="App-header">
+					<h1 className="App-title">My places</h1>
+				</header>
 				<div className="main-content">
 					<Sidebar
 						places={this.state.places}
@@ -103,9 +84,9 @@ class App extends Component {
 						/>
 					</div>
 				</div>
-      </div>
-    );
-  }
+			</div>
+		);
+	}
 }
 
 export default App

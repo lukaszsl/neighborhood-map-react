@@ -4,25 +4,10 @@ import './App.css'
 class Sidebar extends Component {
 
 componentDidMount() {
-	let places = this.props.places
 	document.getElementById('location-list').addEventListener('click', function(event) {
 		console.log(event)
-			// places.map(place => {
-			// 	if (place.name.toLowerCase() === event.target.innerText.toLowerCase()) {
-			// 		this.setState({showingInfoWindow: true})
-			// 	}
-			// })
-
-
 	})
 }
-
-// onClickListItem (props, marker) {
-// 	this.setState({
-// 		activeMarker: marker,
-// 		selectedPlace: props
-// 	})
-// }
 
 	render() {
 		return (
