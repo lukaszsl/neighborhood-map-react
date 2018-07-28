@@ -4,28 +4,28 @@ import './App.css'
 
 export class MapContainer extends Component {
 
-	state = {
-		showingInfoWindow: false,
-		activeMarker: {},
-		selectedPlace: {},
-		places: this.props.places
-	}
+	// state = {
+	// 	showingInfoWindow: this.props.showingInfoWindow,
+	// 	activeMarker: this.props.activeMarker,
+	// 	selectedPlace: this.props.selectedPlace,
+	// 	places: this.props.places
+	// }
 
-	onMarkerClick = (props, marker, e) =>
-		this.setState({
-			selectedPlace: props,
-			activeMarker: marker,
-			showingInfoWindow: true
-		})
+	// onMarkerClick = (props, marker, e) =>
+	// 	this.setState({
+	// 		selectedPlace: props,
+	// 		activeMarker: marker,
+	// 		showingInfoWindow: true
+	// 	})
 
-	onMapClicked = (props) => {
-		if (this.state.showingInfoWindow) {
-			this.setState({
-				showingInfoWindow: false,
-				activeMarker: null
-			})
-		}
-	}
+	// onMapClicked = (props) => {
+	// 	if (this.state.showingInfoWindow) {
+	// 		this.setState({
+	// 			showingInfoWindow: false,
+	// 			activeMarker: null
+	// 		})
+	// 	}
+	// }
 
 	render() {
 		return (
@@ -40,23 +40,23 @@ export class MapContainer extends Component {
 						lat: 64.144740,
 						lng: -21.941762
 					}}
-					onClick={this.onMapClicked}
+					onClick={this.props.onMapClicked}
 					>
-						{this.state.places.map((place) => (
+						{this.props.places.map((place) => (
 							<Marker
 								key={place.name}
 								title={place.title}
 								name={place.name}
 								position={place.position}
 								address={place.address}
-								onClick={this.onMarkerClick} />
+								onClick={this.props.onMarkerClick} />
 						))}
 						<InfoWindow
-							marker={this.state.activeMarker}
-							visible={this.state.showingInfoWindow}>
+							marker={this.props.activeMarker}
+							visible={this.props.showingInfoWindow}>
 								<div className='info-window'>
-									<h1>{this.state.selectedPlace.name}</h1>
-									<p>{this.state.selectedPlace.address}</p>
+									<h1>{this.props.selectedPlace.name}</h1>
+									<p>{this.props.selectedPlace.address}</p>
 								</div>
 						</InfoWindow>
 				</Map>

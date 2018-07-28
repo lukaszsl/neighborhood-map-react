@@ -3,9 +3,26 @@ import './App.css'
 
 class Sidebar extends Component {
 
-state = {
-	places: this.props.places
+componentDidMount() {
+	let places = this.props.places
+	document.getElementById('location-list').addEventListener('click', function(event) {
+		console.log(event)
+			// places.map(place => {
+			// 	if (place.name.toLowerCase() === event.target.innerText.toLowerCase()) {
+			// 		this.setState({showingInfoWindow: true})
+			// 	}
+			// })
+
+
+	})
 }
+
+// onClickListItem (props, marker) {
+// 	this.setState({
+// 		activeMarker: marker,
+// 		selectedPlace: props
+// 	})
+// }
 
 	render() {
 		return (
@@ -15,11 +32,13 @@ state = {
 					role='search'
 					type='text'
 				/>
-				<div className='sidebar-locations-list'>
-					{this.state.places.map((place) => (
-						<p className='sidebar-places'>{place.name}</p>
-					))}
-				</div>
+				<ul id='location-list' className='sidebar-locations-list'>
+					{this.props.places.map((place) => {
+						let listItem = <li key={place.name} className='sidebar-places' onClick={this.props.onMarkerClick}>{place.name}</li>
+
+						return listItem
+					})}
+				</ul>
 			</div>
 		)
 	}
