@@ -2,7 +2,17 @@ import React, { Component } from 'react'
 import {Map, InfoWindow, Marker, GoogleApiWrapper} from 'google-maps-react'
 import './App.css'
 
+const markers = []
+
+
+
 export class MapContainer extends Component {
+
+
+	componentWillMount() {
+		this.props.handleMakeMarkersArray(markers)
+	}
+
 	render() {
 		return (
 				<Map
@@ -18,15 +28,27 @@ export class MapContainer extends Component {
 					}}
 					onClick={this.props.onMapClicked}
 					>
-						{this.props.places.map((place) => (
-							<Marker
+						{
+							this.props.places.map((place) => {
+							let marker = <Marker
 								key={place.name}
 								title={place.title}
 								name={place.name}
 								position={place.position}
 								address={place.address}
-								onClick={this.props.onMarkerClick} />
-						))}
+								onClick={this.props.onMarkerClick} />;
+
+								// 4 is the number of markers (start counting from 0)
+								if (markers.length <= 4)  {
+									console.log(`markers from MapContainer: ${markers}`)
+									markers.push(marker);
+								}
+
+							return(
+								marker
+							)
+						})
+					}
 						<InfoWindow
 							marker={this.props.activeMarker}
 							visible={this.props.showingInfoWindow}>

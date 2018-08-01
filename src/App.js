@@ -6,6 +6,7 @@ import './App.css'
 class App extends Component {
 
 	state = {
+		markers: [],
 		showingInfoWindow: false,
 		activeMarker: {},
 		selectedPlace: {},
@@ -59,6 +60,21 @@ class App extends Component {
 			}
 		}
 
+		onListItemClick = (markerProps, marker) => {
+
+
+		}
+
+		handleMakeMarkersArray = (newMarkers) => {
+			if(this.state.markers.length === 0) {
+				console.log(this.state.markers.length)
+				this.setState({
+					markers: newMarkers
+				})
+			}
+		}
+
+
 	render() {
 		return (
 			<div className="App">
@@ -72,6 +88,7 @@ class App extends Component {
 						activeMarker={this.state.activeMarker}
 						selectedPlace={this.state.selectedPlace}
 						onMarkerClick={this.onMarkerClick}
+						onListItemClick={this.onListItemClick}
 						/>
 					<div className="map-container">
 						<MapContainer
@@ -81,6 +98,7 @@ class App extends Component {
 							selectedPlace={this.state.selectedPlace}
 							onMarkerClick={this.onMarkerClick}
 							onMapClicked={this.onMapClicked}
+							handleMakeMarkersArray={this.handleMakeMarkersArray}
 						/>
 					</div>
 				</div>

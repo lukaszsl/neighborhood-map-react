@@ -19,7 +19,7 @@ componentDidMount() {
 				/>
 				<ul id='location-list' className='sidebar-locations-list'>
 					{this.props.places.map((place) => {
-						let listItem = <li key={place.name} className='sidebar-places' onClick={this.props.onMarkerClick}>{place.name}</li>
+						let listItem = <li key={place.name} className='sidebar-places' onClick={this.props.onListItemClick}>{place.name}</li>
 
 						return listItem
 					})}
